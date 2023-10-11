@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Villa_API;
 using Villa_API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefualtConnection"));
 });
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 
 var app = builder.Build();
 
